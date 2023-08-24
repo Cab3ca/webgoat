@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "vm-syhunt-bessa",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelines.actions.githubusercontent.com/paYqckvBQGAJvCfMCcLuRIqjqtSQduc9xaAViq7KxbBqvimm2S/",
+  "gitHubUrl": "https://github.com/Cab3ca/webgoat",
+  "workFolder": "_work"
+}
