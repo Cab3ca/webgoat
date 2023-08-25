@@ -1,0 +1,3501 @@
+[2023-08-25 13:20:26Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2023-08-25 13:20:26Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:26Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:26Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\bessa-admin\webgoat\actions-runner\.credentials'
+[2023-08-25 13:20:26Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:26Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:26Z INFO HostContext] Well known config file 'Runner': 'C:\Users\bessa-admin\webgoat\actions-runner\.runner'
+[2023-08-25 13:20:26Z INFO Worker] Version: 2.308.0
+[2023-08-25 13:20:26Z INFO Worker] Commit: 7f7ff150c6d2ee316c523be6325188853dfae45d
+[2023-08-25 13:20:26Z INFO Worker] Culture: en-US
+[2023-08-25 13:20:26Z INFO Worker] UI Culture: en-US
+[2023-08-25 13:20:26Z INFO Worker] Waiting to receive the job message from the channel.
+[2023-08-25 13:20:26Z INFO ProcessChannel] Receiving message of length 21698, with hash '828feeff5722c46327321b6979f0b85fd9aae42f8221fc16f996a9b71ecaf9fe'
+[2023-08-25 13:20:26Z INFO Worker] Message received.
+[2023-08-25 13:20:27Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/blank.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v2",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "a60052d4-79a0-5821-3eeb-84adb9872c5b",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 11,
+        "col": 15,
+        "lit": "Check Syhunt Installation"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 12,
+              "col": 14,
+              "lit": "if (!(Get-Command \"Start-CodeScan\" -ErrorAction SilentlyContinue)) {\n  Write-Error \"Syhunt is not installed or not properly configured on the runner\"\n  exit 1\n}\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "dd23db01-cff6-57a4-373a-5c8097a97333",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 17,
+              "col": 14,
+              "lit": "Start-CodeScan -pfcond 'fail-if:risk=mediumup' -output 'report.pdf'"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "87b991c0-db8a-593e-4233-d8a37f15e4c9",
+      "name": "__run_2"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/upload-artifact",
+        "ref": "v2",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 18,
+        "col": 15,
+        "lit": "Syhunt Report"
+      },
+      "contextName": "__actions_upload-artifact",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 22,
+        "col": 10,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 22,
+              "col": 10,
+              "lit": "name"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 22,
+              "col": 16,
+              "lit": "syhunt-report"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 23,
+              "col": 10,
+              "lit": "path"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 23,
+              "col": 16,
+              "lit": "report.pdf"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 24,
+              "col": 10,
+              "lit": "if-no-files-found"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 24,
+              "col": 29,
+              "lit": "error"
+            }
+          }
+        ]
+      },
+      "condition": "failure()",
+      "id": "0b30e6e5-0dd2-50ee-6fda-05b5a0b41dbc",
+      "name": "__actions_upload-artifact"
+    }
+  ],
+  "variables": {
+    "system.isScheduled": {
+      "value": "False"
+    },
+    "system.servertype": {
+      "value": "Hosted"
+    },
+    "system.culture": {
+      "value": ""
+    },
+    "system.pipelineStartTime": {
+      "value": "2023-08-25 13:20:24+00:00"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "system.teamProjectId": {
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    "build.buildId": {
+      "value": "2"
+    },
+    "build.containerId": {
+      "value": "11204207"
+    },
+    "system.workflowFilePath": {
+      "value": ".github/workflows/blank.yml"
+    },
+    "system.phaseDisplayName": {
+      "value": "build"
+    },
+    "system.phaseId": {
+      "value": "6884a131-87da-5381-61f3-d7acc3b91d76"
+    },
+    "system.phaseName": {
+      "value": "build"
+    },
+    "system.phaseAttempt": {
+      "value": "1"
+    },
+    "system.jobIdentifier": {
+      "value": "build.__default"
+    },
+    "system.jobAttempt": {
+      "value": "1"
+    },
+    "System.JobPositionInPhase": {
+      "value": "1"
+    },
+    "System.TotalJobsInPhase": {
+      "value": "1"
+    },
+    "system.github.job": {
+      "value": "build"
+    },
+    "system.jobDisplayName": {
+      "value": "build"
+    },
+    "system.jobId": {
+      "value": "ca395085-040a-526b-2ce8-bdc85f692774"
+    },
+    "system.jobName": {
+      "value": "__default"
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\",\"Packages\":\"read\"}"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    },
+    "system.orchestrationId": {
+      "value": "85d23632-a9fe-405a-90a0-ef595a2a5ad2.build.__default"
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "PipelineAgentJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "Actions",
+    "version": 33,
+    "planId": "85d23632-a9fe-405a-90a0-ef595a2a5ad2",
+    "planGroup": "Actions:00000000-0000-0000-0000-000000000000:1",
+    "artifactUri": "vstfs:///Build/Build/2",
+    "artifactLocation": null,
+    "definition": {
+      "_links": {},
+      "id": 3,
+      "name": "webgoat"
+    },
+    "owner": {
+      "_links": {},
+      "id": 3,
+      "name": "Cab3ca"
+    }
+  },
+  "timeline": {
+    "id": "85d23632-a9fe-405a-90a0-ef595a2a5ad2",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "ca395085-040a-526b-2ce8-bdc85f692774",
+  "jobDisplayName": "build",
+  "jobName": "__default",
+  "requestId": 2,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "14513ce1-260a-438c-a44b-4aaf734f1b4c",
+          "ServerName": "paYqckvBQGAJvCfMCcLuRIqjqtSQduc9xaAViq7KxbBqvimm2S",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/paYqckvBQGAJvCfMCcLuRIqjqtSQduc9xaAViq7KxbBqvimm2S/",
+          "FeedStreamUrl": "https://pipelines.actions.githubusercontent.com/paYqckvBQGAJvCfMCcLuRIqjqtSQduc9xaAViq7KxbBqvimm2S/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/85d23632-a9fe-405a-90a0-ef595a2a5ad2/timelines/85d23632-a9fe-405a-90a0-ef595a2a5ad2/records/ca395085-040a-526b-2ce8-bdc85f692774/feedstream?api-version=6.0-preview",
+          "ConnectivityChecks": "[\"https://acghubeus0.actions.githubusercontent.com/_apis/health\",\"https://actions-results-receiver-production.githubapp.com/health\"]"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://pipelines.actions.githubusercontent.com/paYqckvBQGAJvCfMCcLuRIqjqtSQduc9xaAViq7KxbBqvimm2S/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": ***
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "e5743981634d246607326026449692a98122ebaf"
+        },
+        {
+          "k": "repository",
+          "v": "Cab3ca/webgoat"
+        },
+        {
+          "k": "repository_owner",
+          "v": "Cab3ca"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "129184103"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/Cab3ca/webgoat.git"
+        },
+        {
+          "k": "run_id",
+          "v": "5976356402"
+        },
+        {
+          "k": "run_number",
+          "v": "2"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "repo-self-hosted-runners-disabled",
+          "v": false
+        },
+        {
+          "k": "enterprise-managed-business-id",
+          "v": ""
+        },
+        {
+          "k": "repository_id",
+          "v": "682551770"
+        },
+        {
+          "k": "actor_id",
+          "v": "129184103"
+        },
+        {
+          "k": "actor",
+          "v": "Cab3ca"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "Cab3ca"
+        },
+        {
+          "k": "workflow",
+          "v": "syhunt test"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "e5743981634d246607326026449692a98122ebaf"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "891c899485f55329b7609e78246b04e9917f3c3a"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "jpbessa41@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "bessa"
+                              },
+                              {
+                                "k": "username",
+                                "v": "Cab3ca"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "jpbessa41@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "bessa"
+                              },
+                              {
+                                "k": "username",
+                                "v": "Cab3ca"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "e5743981634d246607326026449692a98122ebaf"
+                        },
+                        {
+                          "k": "message",
+                          "v": "conferindo instalação do syhunt"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2023-08-25T10:11:52-03:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "5353e3240f57852581a57e7a0968722ab1ddfb42"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/Cab3ca/webgoat/commit/e5743981634d246607326026449692a98122ebaf"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/Cab3ca/webgoat/compare/891c899485f5...e5743981634d"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "jpbessa41@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "bessa"
+                          },
+                          {
+                            "k": "username",
+                            "v": "Cab3ca"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "jpbessa41@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "bessa"
+                          },
+                          {
+                            "k": "username",
+                            "v": "Cab3ca"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "e5743981634d246607326026449692a98122ebaf"
+                    },
+                    {
+                      "k": "message",
+                      "v": "conferindo instalação do syhunt"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2023-08-25T10:11:52-03:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "5353e3240f57852581a57e7a0968722ab1ddfb42"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/Cab3ca/webgoat/commit/e5743981634d246607326026449692a98122ebaf"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "129184103+Cab3ca@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "Cab3ca"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/Cab3ca/webgoat.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1692879574.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": "Repositório para testar o syhunt em código"
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "Cab3ca/webgoat"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/Cab3ca/webgoat.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/Cab3ca/webgoat"
+                    },
+                    {
+                      "k": "id",
+                      "v": 682551770.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "JavaScript"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "key",
+                            "v": "other"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Other"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDc6TGljZW5zZTA="
+                          },
+                          {
+                            "k": "spdx_id",
+                            "v": "NOASSERTION"
+                          },
+                          {
+                            "k": "url",
+                            "v": null
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "webgoat"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOKK7p2g"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/129184103?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "129184103+Cab3ca@users.noreply.github.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/Cab3ca/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/Cab3ca/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/Cab3ca/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/Cab3ca/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/Cab3ca"
+                          },
+                          {
+                            "k": "id",
+                            "v": 129184103.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "Cab3ca"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Cab3ca"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "U_kgDOB7MxZw"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/Cab3ca/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/Cab3ca/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/Cab3ca/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/Cab3ca/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/Cab3ca/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/Cab3ca"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1692969259.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 181144.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:Cab3ca/webgoat.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/Cab3ca/webgoat"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/Cab3ca/webgoat/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2023-08-24T12:32:16Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/Cab3ca/webgoat"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/129184103?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/Cab3ca/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/Cab3ca/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/Cab3ca/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/Cab3ca/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/Cab3ca"
+                    },
+                    {
+                      "k": "id",
+                      "v": 129184103.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "Cab3ca"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "U_kgDOB7MxZw"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/Cab3ca/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/Cab3ca/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/Cab3ca/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/Cab3ca/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/Cab3ca/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/Cab3ca"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "workflow_ref",
+          "v": "Cab3ca/webgoat/.github/workflows/blank.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "e5743981634d246607326026449692a98122ebaf"
+        }
+      ]
+    },
+    "partialrerun": false,
+    "needs": {
+      "t": 2
+    },
+    "vars": null,
+    "inputs": {
+      "t": 2
+    },
+    "matrix": null,
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    }
+  }
+}
+[2023-08-25 13:20:27Z INFO JobRunner] Job ID ca395085-040a-526b-2ce8-bdc85f692774
+[2023-08-25 13:20:27Z INFO JobRunner] Creating job server with URL: https://pipelines.actions.githubusercontent.com/paYqckvBQGAJvCfMCcLuRIqjqtSQduc9xaAViq7KxbBqvimm2S/
+[2023-08-25 13:20:27Z INFO ConfigurationStore] currentAssemblyLocation: C:\Users\bessa-admin\webgoat\actions-runner\bin\Runner.Worker.dll
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:27Z INFO ConfigurationStore] binPath: C:\Users\bessa-admin\webgoat\actions-runner\bin
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:27Z INFO ConfigurationStore] RootFolder: C:\Users\bessa-admin\webgoat\actions-runner
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:27Z INFO HostContext] Well known config file 'Runner': 'C:\Users\bessa-admin\webgoat\actions-runner\.runner'
+[2023-08-25 13:20:27Z INFO ConfigurationStore] ConfigFilePath: C:\Users\bessa-admin\webgoat\actions-runner\.runner
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:27Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\bessa-admin\webgoat\actions-runner\.credentials'
+[2023-08-25 13:20:27Z INFO ConfigurationStore] CredFilePath: C:\Users\bessa-admin\webgoat\actions-runner\.credentials
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:27Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\Users\bessa-admin\webgoat\actions-runner\.credentials_migrated'
+[2023-08-25 13:20:27Z INFO ConfigurationStore] MigratedCredFilePath: C:\Users\bessa-admin\webgoat\actions-runner\.credentials_migrated
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:27Z INFO HostContext] Well known config file 'Service': 'C:\Users\bessa-admin\webgoat\actions-runner\.service'
+[2023-08-25 13:20:27Z INFO ConfigurationStore] ServiceConfigFilePath: C:\Users\bessa-admin\webgoat\actions-runner\.service
+[2023-08-25 13:20:27Z INFO ConfigurationStore] Read setting file: 295 chars
+[2023-08-25 13:20:27Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2023-08-25 13:20:27Z INFO Worker] Listening for cancel message from the channel.
+[2023-08-25 13:20:27Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2023-08-25 13:20:27Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2023-08-25 13:20:27Z INFO JobServer] Creating websocket client ...wss://pipelines.actions.githubusercontent.com/paYqckvBQGAJvCfMCcLuRIqjqtSQduc9xaAViq7KxbBqvimm2S/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/85d23632-a9fe-405a-90a0-ef595a2a5ad2/timelines/85d23632-a9fe-405a-90a0-ef595a2a5ad2/records/ca395085-040a-526b-2ce8-bdc85f692774/feedstream?api-version=6.0-preview
+[2023-08-25 13:20:27Z INFO JobServer] Attempting to start websocket client with delay 00:00:00.
+[2023-08-25 13:20:27Z INFO JobServerQueue] Start process web console line queue.
+[2023-08-25 13:20:27Z INFO JobServerQueue] Start process file upload queue.
+[2023-08-25 13:20:27Z INFO JobServerQueue] Start results file upload queue.
+[2023-08-25 13:20:27Z INFO JobServerQueue] Starting results-based upload queue...
+[2023-08-25 13:20:27Z INFO JobServerQueue] Start process timeline update queue.
+[2023-08-25 13:20:27Z INFO ExecutionContext] Initialize GitHub context
+[2023-08-25 13:20:27Z INFO ExecutionContext] Initialize Env context
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:27Z INFO JobRunner] Starting the job execution context.
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:27Z INFO JobRunner] Validating directory permissions for: 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Tools': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_tool'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:27Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:20:27Z INFO JobServer] Successfully started websocket client.
+[2023-08-25 13:20:28Z INFO JobRunner] Getting job extension.
+[2023-08-25 13:20:28Z INFO JobRunner] Initialize job. Getting all job steps.
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:28Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\bessa-admin\webgoat\actions-runner\.credentials'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:28Z INFO HostContext] Well known config file 'SetupInfo': 'C:\Users\bessa-admin\webgoat\actions-runner\.setup_info'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:28Z INFO PipelineDirectoryManager] Loading tracking config if exists: C:\Users\bessa-admin\webgoat\actions-runner\_work\_PipelineMapping\Cab3ca/webgoat\PipelineFolder.json
+[2023-08-25 13:20:28Z INFO PipelineDirectoryManager] Updating job run properties.
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:28Z INFO JobExtension] Downloading actions
+[2023-08-25 13:20:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9475c030-5dca-4aaf-b89c-0c226ccf7500', success rate: 1/1.
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9475c030-5dca-4aaf-b89c-0c226ccf7500', success rate: 1/1.
+[2023-08-25 13:20:28Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9475c030-5dca-4aaf-b89c-0c226ccf7500', success rate: 1/1.
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:28Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:28Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/zipball/ee0669bd1cc54295c223e0bb666b733df41de1c5' into C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions\_temp_b60ac8b6-241c-4caa-b406-f27f5488bb0f\c6778219-39a1-4ce6-bf0a-6c7d8d875d6e.zip.
+[2023-08-25 13:20:32Z INFO ActionManager] Finished getting action repository.
+[2023-08-25 13:20:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:32Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:32Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:32Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:32Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:32Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/upload-artifact/zipball/82c141cc518b40d92cc801eee768e7aafc9c2fa2' into C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions\_temp_7dc49ed3-8db1-41f6-8d74-1377b3c79ba4\379e8705-014c-494e-b71e-b07078ef3cad.zip.
+[2023-08-25 13:20:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9475c030-5dca-4aaf-b89c-0c226ccf7500', success rate: 1/1.
+[2023-08-25 13:20:34Z INFO ActionManager] Finished getting action repository.
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-08-25 13:20:35Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:35Z INFO ActionManager] Load action that reference repository from 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions\actions\checkout\v2'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-08-25 13:20:35Z INFO ActionManager] Action pre node.js file: N/A.
+[2023-08-25 13:20:35Z INFO ActionManager] Action node.js file: dist/index.js.
+[2023-08-25 13:20:35Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Ignore action property author.
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Upload a Build Artifact",
+  "description": "Upload a build artifact that can be used by subsequent workflow steps",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 5,
+          "col": 3,
+          "lit": "name"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 14,
+          "lit": "artifact"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 3,
+          "lit": "if-no-files-found"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 19,
+          "col": 14,
+          "lit": "warn"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "retention-days"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-08-25 13:20:35Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:35Z INFO ActionManager] Load action that reference repository from 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions\actions\upload-artifact\v2'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Ignore action property author.
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Upload a Build Artifact",
+  "description": "Upload a build artifact that can be used by subsequent workflow steps",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 5,
+          "col": 3,
+          "lit": "name"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 14,
+          "lit": "artifact"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 3,
+          "lit": "if-no-files-found"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 19,
+          "col": 14,
+          "lit": "warn"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "retention-days"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-08-25 13:20:35Z INFO ActionManager] Action pre node.js file: N/A.
+[2023-08-25 13:20:35Z INFO ActionManager] Action node.js file: dist/index.js.
+[2023-08-25 13:20:35Z INFO ActionManager] Action post node.js file: N/A.
+[2023-08-25 13:20:35Z INFO JobExtension] Adding .
+[2023-08-25 13:20:35Z INFO JobExtension] Adding .
+[2023-08-25 13:20:35Z INFO JobExtension] Adding .
+[2023-08-25 13:20:35Z INFO JobExtension] Adding .
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:35Z INFO JobExtension] Total accessible running process: 141.
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO JobExtension] Start checking server connectivity.
+[2023-08-25 13:20:35Z INFO JobExtension] Check server connectivity for https://acghubeus0.actions.githubusercontent.com/_apis/health.
+[2023-08-25 13:20:35Z INFO JobExtension] Check server connectivity for https://actions-results-receiver-production.githubapp.com/health.
+[2023-08-25 13:20:35Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "9475c030-5dca-4aaf-b89c-0c226ccf7500",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 8,
+  "startTime": "2023-08-25T13:20:28.0655066Z",
+  "finishTime": "2023-08-25T13:20:35.6658945Z"
+}.
+[2023-08-25 13:20:35Z INFO JobRunner] Total job steps: 4.
+[2023-08-25 13:20:35Z INFO JobRunner] Run all job steps.
+[2023-08-25 13:20:35Z INFO StepsRunner] Processing step: DisplayName='Run actions/checkout@v2'
+[2023-08-25 13:20:35Z INFO StepsRunner] Evaluating: success()
+[2023-08-25 13:20:35Z INFO StepsRunner] Result: true
+[2023-08-25 13:20:35Z INFO StepsRunner] Starting the step.
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO StepsRunner] Which: 'chcp'
+[2023-08-25 13:20:35Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper] Process started with process id 5904, waiting for process exit.
+[2023-08-25 13:20:35Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9475c030-5dca-4aaf-b89c-0c226ccf7500', success rate: 1/1.
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper] Finished process 5904 with exit code 0, and elapsed time 00:00:00.0380983.
+[2023-08-25 13:20:35Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:35Z INFO ActionManager] Load action that reference repository from 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions\actions\checkout\v2'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-08-25 13:20:35Z INFO ActionManager] Action pre node.js file: N/A.
+[2023-08-25 13:20:35Z INFO ActionManager] Action node.js file: dist/index.js.
+[2023-08-25 13:20:35Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2023-08-25 13:20:35Z INFO ExecutionContext] Reserve record order 6 to 10 for post job actions.
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:20:35Z INFO ExecutionContext] Write event payload to C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp\_github_workflow\event.json
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:20:35Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "Cab3ca/webgoat"
+}
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 58,
+  "col": 14,
+  "lit": "1"
+}
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 61,
+  "col": 14,
+  "lit": "false"
+}
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2023-08-25 13:20:35Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2023-08-25 13:20:35Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command set-env
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command set-output
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command save-state
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command add-path
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command warning
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command error
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command notice
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command debug
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command group
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2023-08-25 13:20:35Z INFO ActionCommandManager] Register action command extension for command echo
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:35Z INFO HostContext] Well known directory 'Externals': 'C:\Users\bessa-admin\webgoat\actions-runner\externals'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\bessa-admin\webgoat\actions-runner\externals\node16\bin\node.exe'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions\actions\checkout\v2\dist/index.js"'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\_work\webgoat\webgoat'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-08-25 13:20:35Z INFO ProcessInvokerWrapper] Process started with process id 6488, waiting for process exit.
+[2023-08-25 13:20:36Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2023-08-25 13:20:37Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:40Z INFO AddMaskCommandExtension] Add new secret mask with length of 76
+[2023-08-25 13:20:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:45Z INFO JobServerQueue] Try to append 2 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 2/2.
+[2023-08-25 13:20:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper] Finished process 6488 with exit code 0, and elapsed time 00:00:12.7756051.
+[2023-08-25 13:20:48Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp\_runner_file_commands\step_summary_93777be5-5088-4d79-a19c-183b0927dc54) is empty; skipping attachment upload
+[2023-08-25 13:20:48Z INFO StepsRunner] Step result: 
+[2023-08-25 13:20:48Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v2",
+  "type": "node16",
+  "stage": "Main",
+  "stepId": "a60052d4-79a0-5821-3eeb-84adb9872c5b",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 14,
+  "startTime": "2023-08-25T13:20:35.6936942Z",
+  "finishTime": "2023-08-25T13:20:48.7069989Z"
+}.
+[2023-08-25 13:20:48Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2023-08-25 13:20:48Z INFO StepsRunner] Current state: job state = ''
+[2023-08-25 13:20:48Z INFO StepsRunner] Processing step: DisplayName='Check Syhunt Installation'
+[2023-08-25 13:20:48Z INFO StepsRunner] Evaluating: success()
+[2023-08-25 13:20:48Z INFO StepsRunner] Result: true
+[2023-08-25 13:20:48Z INFO StepsRunner] Starting the step.
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:48Z INFO StepsRunner] Which: 'chcp'
+[2023-08-25 13:20:48Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper] Process started with process id 4840, waiting for process exit.
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper] Finished process 4840 with exit code 0, and elapsed time 00:00:00.0505771.
+[2023-08-25 13:20:48Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:20:48Z INFO ExecutionContext] Write event payload to C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp\_github_workflow\event.json
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:20:48Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2023-08-25 13:20:48Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command set-env
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command set-output
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command save-state
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command add-path
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command warning
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command error
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command notice
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command debug
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command group
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2023-08-25 13:20:48Z INFO ActionCommandManager] Register action command extension for command echo
+[2023-08-25 13:20:48Z INFO ScriptHandler] Which: 'pwsh'
+[2023-08-25 13:20:48Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2023-08-25 13:20:48Z INFO ScriptHandler] Defaulting to powershell
+[2023-08-25 13:20:48Z INFO ScriptHandler] Which: 'powershell'
+[2023-08-25 13:20:48Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:48Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:20:48Z INFO ScriptHandler] Which: 'pwsh'
+[2023-08-25 13:20:48Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2023-08-25 13:20:48Z INFO ScriptHandler] Defaulting to powershell
+[2023-08-25 13:20:48Z INFO ScriptHandler] Which: 'powershell'
+[2023-08-25 13:20:48Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp\cd8a7725-5b58-4035-b2d9-05303bfc7c54.ps1'"'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\_work\webgoat\webgoat'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-08-25 13:20:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-08-25 13:20:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'dd23db01-cff6-57a4-373a-5c8097a97333', success rate: 1/1.
+[2023-08-25 13:20:48Z INFO ProcessInvokerWrapper] Process started with process id 1412, waiting for process exit.
+[2023-08-25 13:20:49Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper] Finished process 1412 with exit code 0, and elapsed time 00:00:01.0897320.
+[2023-08-25 13:20:49Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp\_runner_file_commands\step_summary_68e98228-4941-476a-bc6c-98d587c03f30) is empty; skipping attachment upload
+[2023-08-25 13:20:49Z INFO StepsRunner] Step result: 
+[2023-08-25 13:20:49Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "dd23db01-cff6-57a4-373a-5c8097a97333",
+  "stepContextName": "__run",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 2,
+  "startTime": "2023-08-25T13:20:48.7082206Z",
+  "finishTime": "2023-08-25T13:20:49.8964546Z"
+}.
+[2023-08-25 13:20:49Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2023-08-25 13:20:49Z INFO StepsRunner] Current state: job state = ''
+[2023-08-25 13:20:49Z INFO StepsRunner] Processing step: DisplayName='Run Start-CodeScan -pfcond 'fail-if:risk=mediumup' -output 'report.pdf''
+[2023-08-25 13:20:49Z INFO StepsRunner] Evaluating: success()
+[2023-08-25 13:20:49Z INFO StepsRunner] Result: true
+[2023-08-25 13:20:49Z INFO StepsRunner] Starting the step.
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:49Z INFO StepsRunner] Which: 'chcp'
+[2023-08-25 13:20:49Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper] Process started with process id 6096, waiting for process exit.
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper] Finished process 6096 with exit code 0, and elapsed time 00:00:00.0446295.
+[2023-08-25 13:20:49Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:20:49Z INFO ExecutionContext] Write event payload to C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp\_github_workflow\event.json
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:20:49Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2023-08-25 13:20:49Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command set-env
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command set-output
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command save-state
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command add-path
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command warning
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command error
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command notice
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command debug
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command group
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2023-08-25 13:20:49Z INFO ActionCommandManager] Register action command extension for command echo
+[2023-08-25 13:20:49Z INFO ScriptHandler] Which: 'pwsh'
+[2023-08-25 13:20:49Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2023-08-25 13:20:49Z INFO ScriptHandler] Defaulting to powershell
+[2023-08-25 13:20:49Z INFO ScriptHandler] Which: 'powershell'
+[2023-08-25 13:20:49Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:20:49Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:20:49Z INFO ScriptHandler] Which: 'pwsh'
+[2023-08-25 13:20:49Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2023-08-25 13:20:49Z INFO ScriptHandler] Defaulting to powershell
+[2023-08-25 13:20:49Z INFO ScriptHandler] Which: 'powershell'
+[2023-08-25 13:20:49Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp\e9f56a63-8f53-4862-8253-1a54bf0e8330.ps1'"'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\_work\webgoat\webgoat'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-08-25 13:20:49Z INFO ProcessInvokerWrapper] Process started with process id 2280, waiting for process exit.
+[2023-08-25 13:20:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '87b991c0-db8a-593e-4233-d8a37f15e4c9', success rate: 1/1.
+[2023-08-25 13:20:50Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2023-08-25 13:20:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '87b991c0-db8a-593e-4233-d8a37f15e4c9', success rate: 1/1.
+[2023-08-25 13:20:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:20:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:20:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:21:05Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:21:05Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:21:05Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:21:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:21:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:21:15Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:21:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:21:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:21:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:21:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:21:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:21:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:21:41Z INFO JobServerQueue] Stop aggressive process web console line queue.
+[2023-08-25 13:21:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:21:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:21:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:21:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:21:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:21:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:22:05Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:22:05Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:22:05Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:22:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:22:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:22:15Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:22:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:22:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:22:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:22:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:22:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:22:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:22:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:22:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:22:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:22:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:22:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:22:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:23:05Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:23:05Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:23:05Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:23:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:23:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:23:15Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:23:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:23:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:23:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:23:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:23:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:23:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:23:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:23:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:23:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:23:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:23:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:23:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:24:05Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:24:05Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:24:05Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:24:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:24:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:24:15Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:24:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:24:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:24:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:24:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:24:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:24:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:24:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:24:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:24:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:24:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:24:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:24:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:25:05Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:25:05Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:25:05Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:25:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:25:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:25:15Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:25:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:25:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:25:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:25:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:25:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:25:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:25:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:25:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:25:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:25:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:25:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:25:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:26:05Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:26:05Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:26:05Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:26:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:26:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:26:15Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:26:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:26:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:26:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:26:37Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:26:37Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:26:37Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:26:47Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:26:47Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:26:47Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:26:57Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:26:57Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:26:57Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:27:07Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:27:07Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:27:07Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:27:17Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:27:17Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:27:17Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:27:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:27:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:27:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:27:37Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:27:37Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:27:37Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:27:47Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:27:47Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:27:47Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:27:57Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:27:57Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:27:57Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:28:07Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:28:07Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:28:07Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:28:17Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:28:17Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:28:17Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:28:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:28:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:28:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:28:37Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:28:37Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:28:37Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:28:47Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:28:47Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:28:47Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:28:57Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:28:57Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:28:57Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:29:07Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:29:07Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:29:07Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:29:17Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:29:17Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:29:17Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:29:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:29:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:29:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:29:37Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:29:37Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:29:37Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:29:47Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:29:47Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:29:47Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:29:57Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:29:57Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:29:57Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:30:08Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:30:08Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:30:08Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:30:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:30:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:30:18Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:30:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:30:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:30:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:30:38Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:30:38Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:30:38Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:30:48Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:30:48Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:30:48Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:30:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:30:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:30:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:08Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:08Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:08Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:18Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:38Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:38Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:38Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:48Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:48Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:48Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:53Z INFO JobServer] Caught exception during append web console line to websocket, let's fallback to sending via non-websocket call (total calls: 31, failed calls: 1, websocket state: Open).
+[2023-08-25 13:31:53Z INFO JobServer] Websocket is not open, let's attempt to connect back again with random backoff 00:00:00.2730000 ms (total calls: 31, failed calls: 1).
+[2023-08-25 13:31:53Z INFO JobServer] Creating websocket client ...wss://pipelines.actions.githubusercontent.com/paYqckvBQGAJvCfMCcLuRIqjqtSQduc9xaAViq7KxbBqvimm2S/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/85d23632-a9fe-405a-90a0-ef595a2a5ad2/timelines/85d23632-a9fe-405a-90a0-ef595a2a5ad2/records/ca395085-040a-526b-2ce8-bdc85f692774/feedstream?api-version=6.0-preview
+[2023-08-25 13:31:53Z INFO JobServer] Attempting to start websocket client with delay 00:00:00.2730000.
+[2023-08-25 13:31:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record '87b991c0-db8a-593e-4233-d8a37f15e4c9', success rate: 1/1.
+[2023-08-25 13:31:54Z INFO JobServer] Successfully started websocket client.
+[2023-08-25 13:31:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record '87b991c0-db8a-593e-4233-d8a37f15e4c9', success rate: 1/1.
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper] Finished process 2280 with exit code 1, and elapsed time 00:11:04.8730642.
+[2023-08-25 13:31:54Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp\_runner_file_commands\step_summary_e15f38c7-973d-4568-b834-b7063c384e19) is empty; skipping attachment upload
+[2023-08-25 13:31:54Z INFO StepsRunner] Step result: Failed
+[2023-08-25 13:31:54Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "87b991c0-db8a-593e-4233-d8a37f15e4c9",
+  "stepContextName": "__run_2",
+  "result": "failed",
+  "errorMessages": [
+    "Process completed with exit code 1."
+  ],
+  "executionTimeInSeconds": 665,
+  "startTime": "2023-08-25T13:20:49.8975771Z",
+  "finishTime": "2023-08-25T13:31:54.8452296Z"
+}.
+[2023-08-25 13:31:54Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2023-08-25 13:31:54Z INFO StepsRunner] Current state: job state = 'Failed'
+[2023-08-25 13:31:54Z INFO StepsRunner] Processing step: DisplayName='Syhunt Report'
+[2023-08-25 13:31:54Z INFO StepsRunner] Evaluating: failure()
+[2023-08-25 13:31:54Z INFO StepsRunner] Result: true
+[2023-08-25 13:31:54Z INFO StepsRunner] Starting the step.
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:54Z INFO StepsRunner] Which: 'chcp'
+[2023-08-25 13:31:54Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper] Process started with process id 4504, waiting for process exit.
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper] Finished process 4504 with exit code 0, and elapsed time 00:00:00.0380872.
+[2023-08-25 13:31:54Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:31:54Z INFO ActionManager] Load action that reference repository from 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions\actions\upload-artifact\v2'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:31:54Z INFO ActionManifestManager] Ignore action property author.
+[2023-08-25 13:31:54Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Upload a Build Artifact",
+  "description": "Upload a build artifact that can be used by subsequent workflow steps",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 5,
+          "col": 3,
+          "lit": "name"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 14,
+          "lit": "artifact"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 3,
+          "lit": "if-no-files-found"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 19,
+          "col": 14,
+          "lit": "warn"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "retention-days"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-08-25 13:31:54Z INFO ActionManager] Action pre node.js file: N/A.
+[2023-08-25 13:31:54Z INFO ActionManager] Action node.js file: dist/index.js.
+[2023-08-25 13:31:54Z INFO ActionManager] Action post node.js file: N/A.
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:31:54Z INFO ExecutionContext] Write event payload to C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp\_github_workflow\event.json
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:31:54Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2023-08-25 13:31:54Z INFO ActionManifestManager] Input 'retention-days': default value evaluate result: ""
+[2023-08-25 13:31:54Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command set-env
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command set-output
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command save-state
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command add-path
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command warning
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command error
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command notice
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command debug
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command group
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2023-08-25 13:31:54Z INFO ActionCommandManager] Register action command extension for command echo
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:54Z INFO HostContext] Well known directory 'Externals': 'C:\Users\bessa-admin\webgoat\actions-runner\externals'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\bessa-admin\webgoat\actions-runner\externals\node16\bin\node.exe'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions\actions\upload-artifact\v2\dist/index.js"'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\_work\webgoat\webgoat'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-08-25 13:31:54Z INFO ProcessInvokerWrapper] Process started with process id 6368, waiting for process exit.
+[2023-08-25 13:31:55Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper] Finished process 6368 with exit code 1, and elapsed time 00:00:00.2559154.
+[2023-08-25 13:31:55Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp\_runner_file_commands\step_summary_58cd3265-9670-4b16-853b-f883911e3437) is empty; skipping attachment upload
+[2023-08-25 13:31:55Z INFO StepsRunner] Step result: Failed
+[2023-08-25 13:31:55Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/upload-artifact",
+  "ref": "v2",
+  "type": "node16",
+  "stage": "Main",
+  "stepId": "0b30e6e5-0dd2-50ee-6fda-05b5a0b41dbc",
+  "stepContextName": "__actions_upload-artifact",
+  "hasPreStep": false,
+  "hasPostStep": false,
+  "result": "failed",
+  "errorMessages": [
+    "No files were found with the provided path: report.pdf. No artifacts will be uploaded."
+  ],
+  "executionTimeInSeconds": 1,
+  "startTime": "2023-08-25T13:31:54.8479103Z",
+  "finishTime": "2023-08-25T13:31:55.1745775Z"
+}.
+[2023-08-25 13:31:55Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2023-08-25 13:31:55Z INFO StepsRunner] Current state: job state = 'Failed'
+[2023-08-25 13:31:55Z INFO StepsRunner] Processing step: DisplayName='Post Run actions/checkout@v2'
+[2023-08-25 13:31:55Z INFO StepsRunner] Evaluating: always()
+[2023-08-25 13:31:55Z INFO StepsRunner] Result: true
+[2023-08-25 13:31:55Z INFO StepsRunner] Starting the step.
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:55Z INFO StepsRunner] Which: 'chcp'
+[2023-08-25 13:31:55Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper] Process started with process id 7944, waiting for process exit.
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper] Finished process 7944 with exit code 0, and elapsed time 00:00:00.0224607.
+[2023-08-25 13:31:55Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:31:55Z INFO ActionManager] Load action that reference repository from 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions\actions\checkout\v2'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Actions': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions'
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-08-25 13:31:55Z INFO ActionManager] Action pre node.js file: N/A.
+[2023-08-25 13:31:55Z INFO ActionManager] Action node.js file: dist/index.js.
+[2023-08-25 13:31:55Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:31:55Z INFO ExecutionContext] Write event payload to C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp\_github_workflow\event.json
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Temp': 'C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp'
+[2023-08-25 13:31:55Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "Cab3ca/webgoat"
+}
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 58,
+  "col": 14,
+  "lit": "1"
+}
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 61,
+  "col": 14,
+  "lit": "false"
+}
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2023-08-25 13:31:55Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2023-08-25 13:31:55Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command set-env
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command set-output
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command save-state
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command add-path
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command warning
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command error
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command notice
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command debug
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command group
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2023-08-25 13:31:55Z INFO ActionCommandManager] Register action command extension for command echo
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:55Z INFO HostContext] Well known directory 'Externals': 'C:\Users\bessa-admin\webgoat\actions-runner\externals'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\bessa-admin\webgoat\actions-runner\externals\node16\bin\node.exe'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\bessa-admin\webgoat\actions-runner\_work\_actions\actions\checkout\v2\dist/index.js"'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\_work\webgoat\webgoat'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-08-25 13:31:55Z INFO ProcessInvokerWrapper] Process started with process id 7220, waiting for process exit.
+[2023-08-25 13:31:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record '87b991c0-db8a-593e-4233-d8a37f15e4c9', success rate: 1/1.
+[2023-08-25 13:31:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0b30e6e5-0dd2-50ee-6fda-05b5a0b41dbc', success rate: 1/1.
+[2023-08-25 13:31:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0d0e70ee-f78a-429b-a2d5-4b2ee9e349d5', success rate: 1/1.
+[2023-08-25 13:31:56Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2023-08-25 13:31:57Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0d0e70ee-f78a-429b-a2d5-4b2ee9e349d5', success rate: 1/1.
+[2023-08-25 13:31:57Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2023-08-25 13:31:58Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:58Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:58Z INFO HostContext] Well known directory 'Work': 'C:\Users\bessa-admin\webgoat\actions-runner\_work'
+[2023-08-25 13:31:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0d0e70ee-f78a-429b-a2d5-4b2ee9e349d5', success rate: 1/1.
+[2023-08-25 13:31:59Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:31:59Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 13:31:59Z INFO ProcessInvokerWrapper] Finished process 7220 with exit code 0, and elapsed time 00:00:04.0698258.
+[2023-08-25 13:31:59Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp\_runner_file_commands\step_summary_3c681f25-3c41-4213-b333-b2ded2f66739) is empty; skipping attachment upload
+[2023-08-25 13:31:59Z INFO StepsRunner] Step result: 
+[2023-08-25 13:31:59Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v2",
+  "type": "node16",
+  "stage": "Post",
+  "stepId": "0d0e70ee-f78a-429b-a2d5-4b2ee9e349d5",
+  "result": "succeeded",
+  "errorMessages": [
+    "The process 'C:\\Program Files\\Git\\cmd\\git.exe' failed with exit code 128"
+  ],
+  "executionTimeInSeconds": 5,
+  "startTime": "2023-08-25T13:31:55.1757639Z",
+  "finishTime": "2023-08-25T13:31:59.2815861Z"
+}.
+[2023-08-25 13:31:59Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2023-08-25 13:31:59Z INFO StepsRunner] Current state: job state = 'Failed'
+[2023-08-25 13:31:59Z INFO JobRunner] Finalize job.
+[2023-08-25 13:31:59Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:59Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:59Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:31:59Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:31:59Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:31:59Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:31:59Z INFO JobExtension] Initialize Env context
+[2023-08-25 13:31:59Z INFO JobExtension] Initialize steps context
+[2023-08-25 13:31:59Z INFO JobExtension] Total accessible running process: 143.
+[2023-08-25 13:31:59Z INFO JobExtension] Inspecting process environment variables. PID: 6156 (WmiPrvSE)
+[2023-08-25 13:31:59Z INFO JobExtension] Inspecting process environment variables. PID: 4344 (WmiPrvSE)
+[2023-08-25 13:31:59Z INFO JobExtension] Wait for all connectivity checks to finish.
+[2023-08-25 13:31:59Z INFO JobExtension] Connectivity check result: https://acghubeus0.actions.githubusercontent.com/_apis/health: OK
+[2023-08-25 13:31:59Z INFO JobExtension] Connectivity check result: https://actions-results-receiver-production.githubapp.com/health: OK
+[2023-08-25 13:31:59Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "85d352e3-d8a4-4904-8a4b-f872baa96c78",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2023-08-25T13:31:59.3092545Z",
+  "finishTime": "2023-08-25T13:31:59.3622728Z"
+}.
+[2023-08-25 13:31:59Z INFO JobRunner] Job result after all job steps finish: Failed
+[2023-08-25 13:31:59Z INFO JobRunner] Completing the job execution context.
+[2023-08-25 13:31:59Z INFO JobRunner] Shutting down the job server queue.
+[2023-08-25 13:31:59Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2023-08-25 13:31:59Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2023-08-25 13:32:00Z INFO JobServerQueue] All queue process task stopped.
+[2023-08-25 13:32:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0d0e70ee-f78a-429b-a2d5-4b2ee9e349d5', success rate: 1/1.
+[2023-08-25 13:32:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record '85d352e3-d8a4-4904-8a4b-f872baa96c78', success rate: 1/1.
+[2023-08-25 13:32:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'ca395085-040a-526b-2ce8-bdc85f692774', success rate: 1/1.
+[2023-08-25 13:32:00Z INFO JobServerQueue] Web console line queue drained.
+[2023-08-25 13:32:00Z INFO JobServerQueue] Uploading 2 files in one shot.
+[2023-08-25 13:32:00Z INFO JobServerQueue] Try to upload 2 log files or attachments, success rate: 2/2.
+[2023-08-25 13:32:00Z INFO JobServerQueue] File upload queue drained.
+[2023-08-25 13:32:00Z INFO JobServerQueue] Starting results-based upload queue...
+[2023-08-25 13:32:00Z INFO JobServerQueue] Results upload queue drained.
+[2023-08-25 13:32:00Z INFO JobServerQueue] Timeline update queue drained.
+[2023-08-25 13:32:00Z INFO JobServerQueue] Disposing job server ...
+[2023-08-25 13:32:00Z INFO JobServerQueue] Disposing results server ...
+[2023-08-25 13:32:00Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2023-08-25 13:32:00Z INFO TempDirectoryManager] Cleaning runner temp folder: C:\Users\bessa-admin\webgoat\actions-runner\_work\_temp
+[2023-08-25 13:32:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 13:32:00Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-25 13:32:00Z INFO HostContext] Well known directory 'Diag': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag'
+[2023-08-25 13:32:00Z INFO HostContext] Well known config file 'Telemetry': 'C:\Users\bessa-admin\webgoat\actions-runner\_diag\.telemetry'
+[2023-08-25 13:32:00Z INFO JobRunner] Raising job completed event
+[2023-08-25 13:32:00Z INFO Worker] Job completed.
