@@ -115,3 +115,75 @@
 [2023-08-24 16:48:45Z INFO Terminal] WRITE LINE: Current runner version: '2.308.0'
 [2023-08-24 16:48:45Z INFO Terminal] WRITE LINE: 2023-08-24 16:48:45Z: Listening for Jobs
 [2023-08-24 16:48:45Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2023-08-24 16:54:00Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\bessa-admin\webgoat\actions-runner\.credentials_rsaparams
+[2023-08-24 16:54:00Z INFO MessageListener] Message '1' received from session '053b7277-b04f-468a-8d28-5d13375baef3'.
+[2023-08-24 16:54:00Z INFO Runner] Received job message of length 21148 from service, with hash 'f917ab17f9e693ff0b20d357d48a46b18e5a5d853d65d4d4c61f9a565acae3b4'
+[2023-08-24 16:54:00Z INFO JobDispatcher] Job request 1 for plan 3c9398d5-71c9-4e05-bf2c-6c493b875a45 job ca395085-040a-526b-2ce8-bdc85f692774 received.
+[2023-08-24 16:54:00Z INFO JobDispatcher] Pull OrchestrationId 3c9398d5-71c9-4e05-bf2c-6c493b875a45.build.__default from JWT claims
+[2023-08-24 16:54:00Z INFO Terminal] WRITE LINE: 2023-08-24 16:54:00Z: Running job: build
+[2023-08-24 16:54:00Z INFO JobDispatcher] Start renew job request 1 for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2023-08-24 16:54:00Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:04:00 PM
+[2023-08-24 16:54:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-24 16:54:00Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-24 16:54:00Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\bessa-admin\webgoat\actions-runner\bin\Runner.Worker.exe'
+[2023-08-24 16:54:00Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 2112 2124'
+[2023-08-24 16:54:00Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-24 16:54:00Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-24 16:54:00Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-08-24 16:54:00Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2023-08-24 16:54:00Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-24 16:54:00Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-08-24 16:54:00Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-24 16:54:00Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2023-08-24 16:54:00Z INFO ProcessInvokerWrapper] Process started with process id 1556, waiting for process exit.
+[2023-08-24 16:54:00Z INFO JobDispatcher] Send job request message to worker for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2023-08-24 16:54:00Z INFO ProcessChannel] Sending message of length 21148, with hash 'f917ab17f9e693ff0b20d357d48a46b18e5a5d853d65d4d4c61f9a565acae3b4'
+[2023-08-24 16:54:01Z INFO JobNotification] Entering JobStarted Notification
+[2023-08-24 16:54:01Z INFO JobNotification] Entering StartMonitor
+[2023-08-24 16:55:00Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:05:00 PM
+[2023-08-24 16:56:00Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:06:00 PM
+[2023-08-24 16:57:00Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:07:00 PM
+[2023-08-24 16:58:00Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:08:01 PM
+[2023-08-24 16:59:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:09:01 PM
+[2023-08-24 17:00:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:10:01 PM
+[2023-08-24 17:01:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:11:01 PM
+[2023-08-24 17:02:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:12:01 PM
+[2023-08-24 17:03:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:13:01 PM
+[2023-08-24 17:04:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:14:01 PM
+[2023-08-24 17:05:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:15:01 PM
+[2023-08-24 17:06:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:16:01 PM
+[2023-08-24 17:07:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:17:01 PM
+[2023-08-24 17:08:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:18:01 PM
+[2023-08-24 17:09:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:19:01 PM
+[2023-08-24 17:10:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:20:01 PM
+[2023-08-24 17:11:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:21:01 PM
+[2023-08-24 17:12:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:22:01 PM
+[2023-08-24 17:13:02Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:23:02 PM
+[2023-08-24 17:14:02Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:24:02 PM
+[2023-08-24 17:15:02Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:25:02 PM
+[2023-08-24 17:16:02Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:26:03 PM
+[2023-08-24 17:17:03Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:27:03 PM
+[2023-08-24 17:18:03Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:28:03 PM
+[2023-08-24 17:18:49Z WARN GitHubActionsService] Attempt 1 of GET request to https://pipelines.actions.githubusercontent.com/paYqckvBQGAJvCfMCcLuRIqjqtSQduc9xaAViq7KxbBqvimm2S/_apis/distributedtask/pools/1/messages?sessionId=053b7277-b04f-468a-8d28-5d13375baef3&lastMessageId=1&status=Online&runnerVersion=2.308.0 failed (HTTP Status: ServiceUnavailable, AFD Ref: Ref A: 53E2D21AD46E42A98620C898591BC716 Ref B: BN3EDGE0207 Ref C: 2023-08-24T17:18:11Z). The operation will be retried in 10.814 seconds.
+[2023-08-24 17:19:03Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:29:03 PM
+[2023-08-24 17:20:03Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:30:03 PM
+[2023-08-24 17:21:03Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:31:03 PM
+[2023-08-24 17:22:03Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:32:03 PM
+[2023-08-24 17:23:03Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:33:03 PM
+[2023-08-24 17:24:03Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:34:03 PM
+[2023-08-24 17:24:49Z INFO MessageListener] No message retrieved from session '053b7277-b04f-468a-8d28-5d13375baef3' within last 30 minutes.
+[2023-08-24 17:25:03Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 8/24/2023 5:35:03 PM
+[2023-08-24 17:25:16Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-24 17:25:16Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-24 17:25:16Z INFO ProcessInvokerWrapper] Finished process 1556 with exit code 102, and elapsed time 00:31:15.9370116.
+[2023-08-24 17:25:16Z INFO JobDispatcher] Worker finished for job ca395085-040a-526b-2ce8-bdc85f692774. Code: 102
+[2023-08-24 17:25:16Z INFO JobDispatcher] finish job request for job ca395085-040a-526b-2ce8-bdc85f692774 with result: Failed
+[2023-08-24 17:25:16Z INFO Terminal] WRITE LINE: 2023-08-24 17:25:16Z: Job build completed with result: Failed
+[2023-08-24 17:25:16Z INFO JobDispatcher] Stop renew job request for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2023-08-24 17:25:16Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 1.
+[2023-08-24 17:25:16Z INFO JobNotification] Entering JobCompleted Notification
+[2023-08-24 17:25:16Z INFO JobNotification] Entering EndMonitor
+[2023-08-24 17:44:00Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\bessa-admin\webgoat\actions-runner\.credentials_rsaparams
+[2023-08-24 17:44:00Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2023-08-24 17:54:50Z INFO MessageListener] No message retrieved from session '053b7277-b04f-468a-8d28-5d13375baef3' within last 30 minutes.
+[2023-08-24 18:24:51Z INFO MessageListener] No message retrieved from session '053b7277-b04f-468a-8d28-5d13375baef3' within last 30 minutes.

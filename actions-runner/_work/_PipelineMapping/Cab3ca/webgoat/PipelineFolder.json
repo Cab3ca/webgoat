@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "Cab3ca/webgoat",
+  "pipelineDirectory": "webgoat",
+  "workspaceDirectory": "webgoat\\webgoat",
+  "repositories": {
+    "Cab3ca/webgoat": {
+      "repositoryPath": "webgoat\\webgoat",
+      "lastRunOn": "08/24/2023 13:54:02 -03:00"
+    }
+  },
+  "lastRunOn": "08/24/2023 13:54:02 -03:00"
+}

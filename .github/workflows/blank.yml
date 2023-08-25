@@ -8,6 +8,12 @@ jobs:
     runs-on: [self-hosted, Windows, X64]
     steps:
       - uses: actions/checkout@v2
+      - name: Check Syhunt Installation
+        run: |
+          if (!(Get-Command "Start-CodeScan" -ErrorAction SilentlyContinue)) {
+            Write-Error "Syhunt is not installed or not properly configured on the runner"
+            exit 1
+          }
       - run: Start-CodeScan -pfcond 'fail-if:risk=mediumup' -output 'report.pdf'
       - name: 'Syhunt Report'
         uses: actions/upload-artifact@v2
