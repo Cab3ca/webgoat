@@ -1,0 +1,166 @@
+[2023-08-31 13:40:33Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2023-08-31 13:40:33Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-31 13:40:33Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-31 13:40:33Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\bessa-admin\webgoat\actions-runner\.credentials'
+[2023-08-31 13:40:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-31 13:40:34Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-31 13:40:34Z INFO HostContext] Well known config file 'Runner': 'C:\Users\bessa-admin\webgoat\actions-runner\.runner'
+[2023-08-31 13:40:35Z INFO Listener] Runner is built for Windows (X64) - win-x64.
+[2023-08-31 13:40:35Z INFO Listener] RuntimeInformation: Microsoft Windows 10.0.20348.
+[2023-08-31 13:40:35Z INFO Listener] Version: 2.308.0
+[2023-08-31 13:40:35Z INFO Listener] Commit: 7f7ff150c6d2ee316c523be6325188853dfae45d
+[2023-08-31 13:40:35Z INFO Listener] Culture: en-US
+[2023-08-31 13:40:35Z INFO Listener] UI Culture: en-US
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-31 13:40:35Z INFO Listener] Validating directory permissions for: 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-31 13:40:35Z INFO CommandLineParser] Parse
+[2023-08-31 13:40:35Z INFO CommandLineParser] Parsing 1 args
+[2023-08-31 13:40:35Z INFO CommandLineParser] parsing argument
+[2023-08-31 13:40:35Z INFO CommandLineParser] HasArgs: False
+[2023-08-31 13:40:35Z INFO CommandLineParser] Adding Command: run
+[2023-08-31 13:40:35Z INFO Listener] Arguments parsed
+[2023-08-31 13:40:35Z INFO Runner] ExecuteCommand
+[2023-08-31 13:40:35Z INFO ConfigurationStore] currentAssemblyLocation: C:\Users\bessa-admin\webgoat\actions-runner\bin\Runner.Listener.dll
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-31 13:40:35Z INFO ConfigurationStore] binPath: C:\Users\bessa-admin\webgoat\actions-runner\bin
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-31 13:40:35Z INFO ConfigurationStore] RootFolder: C:\Users\bessa-admin\webgoat\actions-runner
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-31 13:40:35Z INFO HostContext] Well known config file 'Runner': 'C:\Users\bessa-admin\webgoat\actions-runner\.runner'
+[2023-08-31 13:40:35Z INFO ConfigurationStore] ConfigFilePath: C:\Users\bessa-admin\webgoat\actions-runner\.runner
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-31 13:40:35Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\bessa-admin\webgoat\actions-runner\.credentials'
+[2023-08-31 13:40:35Z INFO ConfigurationStore] CredFilePath: C:\Users\bessa-admin\webgoat\actions-runner\.credentials
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-31 13:40:35Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\Users\bessa-admin\webgoat\actions-runner\.credentials_migrated'
+[2023-08-31 13:40:35Z INFO ConfigurationStore] MigratedCredFilePath: C:\Users\bessa-admin\webgoat\actions-runner\.credentials_migrated
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-31 13:40:35Z INFO HostContext] Well known config file 'Service': 'C:\Users\bessa-admin\webgoat\actions-runner\.service'
+[2023-08-31 13:40:35Z INFO ConfigurationStore] ServiceConfigFilePath: C:\Users\bessa-admin\webgoat\actions-runner\.service
+[2023-08-31 13:40:35Z INFO CommandSettings] Flag 'help': 'False'
+[2023-08-31 13:40:35Z INFO CommandSettings] Flag 'version': 'False'
+[2023-08-31 13:40:35Z INFO CommandSettings] Flag 'commit': 'False'
+[2023-08-31 13:40:35Z INFO CommandSettings] Flag 'check': 'False'
+[2023-08-31 13:40:35Z INFO CommandSettings] Command 'configure': 'False'
+[2023-08-31 13:40:35Z INFO CommandSettings] Command 'remove': 'False'
+[2023-08-31 13:40:35Z INFO CommandSettings] Command 'warmup': 'False'
+[2023-08-31 13:40:35Z INFO ConfigurationManager] LoadSettings
+[2023-08-31 13:40:35Z INFO ConfigurationStore] IsConfigured()
+[2023-08-31 13:40:35Z INFO ConfigurationStore] IsConfigured: True
+[2023-08-31 13:40:35Z INFO ConfigurationManager] Is configured: True
+[2023-08-31 13:40:35Z INFO ConfigurationStore] Read setting file: 295 chars
+[2023-08-31 13:40:35Z INFO ConfigurationManager] Settings Loaded
+[2023-08-31 13:40:35Z INFO ConfigurationStore] IsServiceConfigured()
+[2023-08-31 13:40:35Z INFO ConfigurationStore] IsServiceConfigured: False
+[2023-08-31 13:40:35Z INFO CommandSettings] Command 'run': 'True'
+[2023-08-31 13:40:35Z INFO ConfigurationStore] IsConfigured()
+[2023-08-31 13:40:35Z INFO ConfigurationStore] IsConfigured: True
+[2023-08-31 13:40:35Z INFO ConfigurationManager] Is configured: True
+[2023-08-31 13:40:35Z INFO Runner] Could not parse the argument value '' for StartupType. Defaulting to Manual
+[2023-08-31 13:40:35Z INFO Runner] Set runner startup type - Manual
+[2023-08-31 13:40:35Z INFO CommandSettings] Flag 'once': 'False'
+[2023-08-31 13:40:35Z INFO CommandSettings] Flag 'once': 'False'
+[2023-08-31 13:40:35Z INFO Runner] RunAsync
+[2023-08-31 13:40:35Z INFO ConfigurationManager] LoadSettings
+[2023-08-31 13:40:35Z INFO ConfigurationStore] IsConfigured()
+[2023-08-31 13:40:35Z INFO ConfigurationStore] IsConfigured: True
+[2023-08-31 13:40:35Z INFO ConfigurationManager] Is configured: True
+[2023-08-31 13:40:35Z INFO ConfigurationManager] Settings Loaded
+[2023-08-31 13:40:35Z INFO MessageListener] {
+  "AgentId": 2,
+  "AgentName": "vm-syhunt-bessa",
+  "PoolId": 1,
+  "PoolName": "Default",
+  "ServerUrl": "https://pipelines.actions.githubusercontent.com/paYqckvBQGAJvCfMCcLuRIqjqtSQduc9xaAViq7KxbBqvimm2S/",
+  "GitHubUrl": "https://github.com/Cab3ca/webgoat",
+  "WorkFolder": "_work"
+}
+[2023-08-31 13:40:35Z INFO MessageListener] Loading Credentials
+[2023-08-31 13:40:35Z INFO ConfigurationStore] HasCredentials()
+[2023-08-31 13:40:35Z INFO ConfigurationStore] stored True
+[2023-08-31 13:40:35Z INFO CredentialManager] GetCredentialProvider
+[2023-08-31 13:40:35Z INFO CredentialManager] Creating type OAuth
+[2023-08-31 13:40:35Z INFO CredentialManager] Creating credential type: OAuth
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-31 13:40:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\bessa-admin\webgoat\actions-runner'
+[2023-08-31 13:40:35Z INFO HostContext] Well known config file 'RSACredentials': 'C:\Users\bessa-admin\webgoat\actions-runner\.credentials_rsaparams'
+[2023-08-31 13:40:35Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\bessa-admin\webgoat\actions-runner\.credentials_rsaparams
+[2023-08-31 13:40:35Z INFO MessageListener] Attempt to create session.
+[2023-08-31 13:40:35Z INFO MessageListener] Connecting to the Runner Server...
+[2023-08-31 13:40:35Z INFO RunnerServer] EstablishVssConnection
+[2023-08-31 13:40:35Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2023-08-31 13:40:36Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2023-08-31 13:40:36Z INFO RunnerServer] EstablishVssConnection
+[2023-08-31 13:40:36Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2023-08-31 13:40:36Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2023-08-31 13:40:36Z INFO RunnerServer] EstablishVssConnection
+[2023-08-31 13:40:36Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2023-08-31 13:40:36Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2023-08-31 13:40:37Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2023-08-31 13:40:37Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2023-08-31 13:40:37Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2023-08-31 13:40:37Z INFO MessageListener] VssConnection created
+[2023-08-31 13:40:37Z INFO Terminal] WRITE LINE: 
+[2023-08-31 13:40:37Z INFO Terminal] WRITE LINE: 
+[2023-08-31 13:40:37Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\bessa-admin\webgoat\actions-runner\.credentials_rsaparams
+[2023-08-31 13:40:37Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\bessa-admin\webgoat\actions-runner\.credentials_rsaparams
+[2023-08-31 13:40:37Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2023-08-31 13:40:37Z INFO MessageListener] Session created.
+[2023-08-31 13:40:37Z INFO Terminal] WRITE LINE: Current runner version: '2.308.0'
+[2023-08-31 13:40:37Z INFO Terminal] WRITE LINE: 2023-08-31 13:40:37Z: Listening for Jobs
+[2023-08-31 13:40:37Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2023-08-31 13:41:51Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\bessa-admin\webgoat\actions-runner\.credentials_rsaparams
+[2023-08-31 13:41:51Z INFO MessageListener] Message '5' received from session 'e45ca040-1a4b-4a53-a7f8-4dcf64930184'.
+[2023-08-31 13:41:51Z INFO Runner] Received job message of length 21710 from service, with hash 'fbbde0aa041adb55399fbae3068a7d61a4fc979c3411560c04e93bd38bd096c6'
+[2023-08-31 13:41:51Z INFO JobDispatcher] Job request 5 for plan c446b9f4-f975-45c9-979d-952fd80faca6 job ca395085-040a-526b-2ce8-bdc85f692774 received.
+[2023-08-31 13:41:51Z INFO JobDispatcher] Pull OrchestrationId c446b9f4-f975-45c9-979d-952fd80faca6.build.__default from JWT claims
+[2023-08-31 13:41:51Z INFO Terminal] WRITE LINE: 2023-08-31 13:41:51Z: Running job: build
+[2023-08-31 13:41:51Z INFO JobDispatcher] Start renew job request 5 for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2023-08-31 13:41:52Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 1:51:52 PM
+[2023-08-31 13:41:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-31 13:41:52Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-31 13:41:52Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\bessa-admin\webgoat\actions-runner\bin\Runner.Worker.exe'
+[2023-08-31 13:41:52Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 2156 2168'
+[2023-08-31 13:41:52Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-31 13:41:52Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-31 13:41:52Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-08-31 13:41:52Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2023-08-31 13:41:52Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-31 13:41:52Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-08-31 13:41:52Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-31 13:41:52Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2023-08-31 13:41:52Z INFO ProcessInvokerWrapper] Process started with process id 4736, waiting for process exit.
+[2023-08-31 13:41:52Z INFO JobDispatcher] Send job request message to worker for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2023-08-31 13:41:52Z INFO ProcessChannel] Sending message of length 21710, with hash 'fbbde0aa041adb55399fbae3068a7d61a4fc979c3411560c04e93bd38bd096c6'
+[2023-08-31 13:41:55Z INFO JobNotification] Entering JobStarted Notification
+[2023-08-31 13:41:55Z INFO JobNotification] Entering StartMonitor
+[2023-08-31 13:42:53Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 1:52:53 PM
+[2023-08-31 13:43:53Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 1:53:53 PM
+[2023-08-31 13:44:53Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 1:54:53 PM
+[2023-08-31 13:45:53Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 1:55:53 PM
+[2023-08-31 13:46:53Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 1:56:53 PM
+[2023-08-31 13:47:53Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 1:57:53 PM
+[2023-08-31 13:48:55Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 1:58:55 PM
+[2023-08-31 13:49:55Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 1:59:55 PM
+[2023-08-31 13:50:55Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 2:00:55 PM
+[2023-08-31 13:51:55Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 2:01:55 PM
+[2023-08-31 13:52:55Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 2:02:55 PM
+[2023-08-31 13:53:55Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 2:03:55 PM
+[2023-08-31 13:54:55Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 2:04:55 PM
+[2023-08-31 13:55:55Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 8/31/2023 2:05:55 PM
+[2023-08-31 13:56:09Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-31 13:56:09Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-31 13:56:09Z INFO ProcessInvokerWrapper] Finished process 4736 with exit code 102, and elapsed time 00:14:16.7128423.
+[2023-08-31 13:56:09Z INFO JobDispatcher] Worker finished for job ca395085-040a-526b-2ce8-bdc85f692774. Code: 102
+[2023-08-31 13:56:09Z INFO JobDispatcher] finish job request for job ca395085-040a-526b-2ce8-bdc85f692774 with result: Failed
+[2023-08-31 13:56:09Z INFO Terminal] WRITE LINE: 2023-08-31 13:56:09Z: Job build completed with result: Failed
+[2023-08-31 13:56:09Z INFO JobDispatcher] Stop renew job request for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2023-08-31 13:56:09Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 5.
+[2023-08-31 13:56:09Z INFO JobNotification] Entering JobCompleted Notification
+[2023-08-31 13:56:09Z INFO JobNotification] Entering EndMonitor
