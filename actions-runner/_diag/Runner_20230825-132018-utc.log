@@ -212,3 +212,54 @@
 [2023-08-25 14:15:26Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\bessa-admin\webgoat\actions-runner\.credentials_rsaparams
 [2023-08-25 14:15:26Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
 [2023-08-25 14:21:16Z INFO MessageListener] No message retrieved from session '74661eb3-742c-4230-b466-96c0a1a0ba7a' within last 30 minutes.
+[2023-08-25 14:43:30Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\bessa-admin\webgoat\actions-runner\.credentials_rsaparams
+[2023-08-25 14:43:30Z INFO MessageListener] Message '4' received from session '74661eb3-742c-4230-b466-96c0a1a0ba7a'.
+[2023-08-25 14:43:30Z INFO Runner] Received job message of length 21706 from service, with hash '650113a83c940a8a4955477ee3fd3a3ff7c9fe7860aeb518ed0ef12d03417b18'
+[2023-08-25 14:43:30Z INFO JobDispatcher] Job request 4 for plan 92162e19-8930-4fcc-9ced-10c85bfe9704 job ca395085-040a-526b-2ce8-bdc85f692774 received.
+[2023-08-25 14:43:30Z INFO JobDispatcher] Pull OrchestrationId 92162e19-8930-4fcc-9ced-10c85bfe9704.build.__default from JWT claims
+[2023-08-25 14:43:30Z INFO JobDispatcher] Job request ca395085-040a-526b-2ce8-bdc85f692774 processed succeed.
+[2023-08-25 14:43:30Z INFO Terminal] WRITE LINE: 2023-08-25 14:43:30Z: Running job: build
+[2023-08-25 14:43:30Z INFO JobDispatcher] Start renew job request 4 for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2023-08-25 14:43:30Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 8/25/2023 2:53:30 PM
+[2023-08-25 14:43:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 14:43:30Z INFO ProcessInvokerWrapper] Starting process:
+[2023-08-25 14:43:30Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\bessa-admin\webgoat\actions-runner\bin\Runner.Worker.exe'
+[2023-08-25 14:43:30Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 2392 2368'
+[2023-08-25 14:43:30Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\bessa-admin\webgoat\actions-runner\bin'
+[2023-08-25 14:43:30Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-08-25 14:43:30Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-08-25 14:43:30Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2023-08-25 14:43:30Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-08-25 14:43:30Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-08-25 14:43:30Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-08-25 14:43:30Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2023-08-25 14:43:30Z INFO ProcessInvokerWrapper] Process started with process id 7688, waiting for process exit.
+[2023-08-25 14:43:30Z INFO JobDispatcher] Send job request message to worker for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2023-08-25 14:43:30Z INFO ProcessChannel] Sending message of length 21706, with hash '650113a83c940a8a4955477ee3fd3a3ff7c9fe7860aeb518ed0ef12d03417b18'
+[2023-08-25 14:43:31Z INFO JobNotification] Entering JobStarted Notification
+[2023-08-25 14:43:31Z INFO JobNotification] Entering StartMonitor
+[2023-08-25 14:44:30Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 8/25/2023 2:54:30 PM
+[2023-08-25 14:45:30Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 8/25/2023 2:55:30 PM
+[2023-08-25 14:46:30Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 8/25/2023 2:56:30 PM
+[2023-08-25 14:47:30Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 8/25/2023 2:57:30 PM
+[2023-08-25 14:48:30Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 8/25/2023 2:58:30 PM
+[2023-08-25 14:49:30Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 8/25/2023 2:59:30 PM
+[2023-08-25 14:50:30Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 8/25/2023 3:00:30 PM
+[2023-08-25 14:51:30Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 8/25/2023 3:01:30 PM
+[2023-08-25 14:52:30Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 8/25/2023 3:02:30 PM
+[2023-08-25 14:53:30Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 8/25/2023 3:03:30 PM
+[2023-08-25 14:54:30Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 8/25/2023 3:04:30 PM
+[2023-08-25 14:54:39Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 14:54:39Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-08-25 14:54:39Z INFO ProcessInvokerWrapper] Finished process 7688 with exit code 102, and elapsed time 00:11:09.7770501.
+[2023-08-25 14:54:39Z INFO JobDispatcher] Worker finished for job ca395085-040a-526b-2ce8-bdc85f692774. Code: 102
+[2023-08-25 14:54:39Z INFO JobDispatcher] finish job request for job ca395085-040a-526b-2ce8-bdc85f692774 with result: Failed
+[2023-08-25 14:54:39Z INFO Terminal] WRITE LINE: 2023-08-25 14:54:39Z: Job build completed with result: Failed
+[2023-08-25 14:54:39Z INFO JobDispatcher] Stop renew job request for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2023-08-25 14:54:39Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 4.
+[2023-08-25 14:54:39Z INFO JobNotification] Entering JobCompleted Notification
+[2023-08-25 14:54:39Z INFO JobNotification] Entering EndMonitor
+[2023-08-25 15:11:01Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\bessa-admin\webgoat\actions-runner\.credentials_rsaparams
+[2023-08-25 15:11:01Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2023-08-25 15:13:31Z INFO MessageListener] No message retrieved from session '74661eb3-742c-4230-b466-96c0a1a0ba7a' within last 30 minutes.
+[2023-08-25 15:43:32Z INFO MessageListener] No message retrieved from session '74661eb3-742c-4230-b466-96c0a1a0ba7a' within last 30 minutes.
