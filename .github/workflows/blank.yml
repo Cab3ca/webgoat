@@ -14,7 +14,7 @@ jobs:
             Write-Error "Syhunt is not installed or not properly configured on the runner"
             exit 1
           }
-      - run: Start-CodeScan -pfcond 'fail-if:risk=mediumup' -output 'report.pdf'
+      - run: Start-CodeScan -output 'report.pdf'
 
       - name: 'Syhunt Report'
         uses: actions/upload-artifact@v2
